@@ -1,76 +1,56 @@
 const perspectiveID = 'perspective1'
 
-export const workProperties = `
+export const filmRoleInstanceProperties = `
     {
-      ?id skos:prefLabel ?prefLabel__id .
-      BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-      BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
-      BIND(?id as ?uri__id)
-      BIND(?id as ?uri__dataProviderUrl)
-      BIND(?id as ?uri__prefLabel)
+      ?id a voc:FilmRole .
+      BIND(REPLACE(STR(?id), "^.*[/#]([^/#]+)$", "$1") AS ?uri__prefLabel)
+      BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*[/#]([^/#]+)$", "$1")) AS ?uri__dataProviderUrl)
     }
     UNION
     {
-      ?id ^mmm-schema:manuscript_work ?manuscript__id .
-      ?manuscript__id skos:prefLabel ?manuscript__prefLabel .
-      BIND(CONCAT("/manuscripts/page/", REPLACE(STR(?manuscript__id), "^.*\\\\/(.+)", "$1")) AS ?manuscript__dataProviderUrl)
-    }
-    UNION
-    {
-      ?id  ^mmm-schema:manuscript_work/crm:P46i_forms_part_of ?collection__id .
-      ?collection__id skos:prefLabel ?collection__prefLabel .
-      BIND(CONCAT("/collections/page/", ENCODE_FOR_URI(REPLACE(STR(?collection__id), "^.*\\\\/(.+)", "$1"))) AS ?collection__dataProviderUrl)
-    }
-    UNION
-    {
-      ?id ^mmm-schema:manuscript_work/crm:P45_consists_of ?material__id .
-      ?material__id skos:prefLabel ?material__prefLabel .
-    }
-    UNION
-    {
-      ?id dct:source ?source__id .
-      ?source__id skos:prefLabel ?source__prefLabel .
-    }
-    UNION
-    {
-      ?id ^frbroo:R16_initiated/(mmm-schema:carried_out_by_as_possible_author|mmm-schema:carried_out_by_as_author) ?author__id .
-      ?author__id skos:prefLabel ?author__prefLabel .
-      BIND(CONCAT("/actors/page/", REPLACE(STR(?author__id), "^.*\\\\/(.+)", "$1")) AS ?author__dataProviderUrl)
-    }
-    UNION
-    {
-      ?id ^frbroo:R19_created_a_realisation_of/frbroo:R17_created ?expression__id .
-      ?expression__id skos:prefLabel ?expression__prefLabel .
+      ?id voc:character ?character__id .
       OPTIONAL {
-        ?expression__id crm:P72_has_language ?language__id .
-        ?expression__id dct:source ?language__source__id .
-        ?language__source__id skos:prefLabel ?language__source__prefLabel .
-        ?language__id skos:prefLabel ?language__prefLabel .
+        ?character__id rdfs:label ?characterLabel .
+        FILTER(LANG(?characterLabel) = 'en')
       }
-      BIND(CONCAT("/expressions/page/", REPLACE(STR(?expression__id), "^.*\\\\/(.+)", "$1")) AS ?expression__dataProviderUrl)
+      BIND(COALESCE(?characterLabel, REPLACE(STR(?character__id), "^.*[/#]([^/#]+)$", "$1")) AS ?character__prefLabel)
     }
     UNION
     {
-      ?id ^mmm-schema:manuscript_work/^crm:P108_has_produced/crm:P4_has_time-span ?productionTimespan__id .
-      ?productionTimespan__id skos:prefLabel ?productionTimespan__prefLabel .
-      ?productionTimespan__id dct:source ?productionTimespan__source__id .
-      ?productionTimespan__source__id skos:prefLabel ?productionTimespan__source__prefLabel .
-      OPTIONAL { ?productionTimespan__id crm:P82a_begin_of_the_begin ?productionTimespan__start }
-      OPTIONAL { ?productionTimespan__id crm:P82b_end_of_the_end ?productionTimespan__end }
-    }
-`
+      ?id voc:film ?film__id .
+      OPTIONAL {
+        ?film__id rdfs:label ?filmLabel .
+        FILTER(LANG(?filmLabel) = 'en')
+      }
+      BIND(COALESCE(?filmLabel, REPLACE(STR(?film__id), "^.*[/#]([^/#]+)$", "$1")) AS ?film__prefLabel)
+      BIND(CONCAT("/film/page/", REPLACE(STR(?film__id), "^.*[/#]([^/#]+)$", "$1")) AS ?film__dataProviderUrl)
 
-export const knowledgeGraphMetadataQuery = `
-  SELECT * 
-  WHERE {
-    ?id a sd:Dataset ;
-        dct:title ?title ;
-        dct:publisher ?publisher ;
-        dct:rightsHolder ?rightsHolder ;
-        dct:modified ?modified ;
-        dct:source ?databaseDump__id .
-    ?databaseDump__id skos:prefLabel ?databaseDump__prefLabel ;
-                      mmm-schema:data_provider_url ?databaseDump__dataProviderUrl ;
-                      dct:modified ?databaseDump__modified .
+    }
+    UNION
+    {
+      ?id voc:person ?person__id .
+      OPTIONAL {
+        ?person__id rdfs:label ?personLabel .
+        FILTER(LANG(?personLabel) = 'en')
+      }
+      BIND(COALESCE(?personLabel, REPLACE(STR(?person__id), "^.*[/#]([^/#]+)$", "$1")) AS ?person__prefLabel)
+    }
+    UNION
+    {
+      ?id voc:role ?role__id .
+      OPTIONAL {
+        ?role__id rdfs:label ?roleLabel .
+        FILTER(LANG(?roleLabel) = 'en')
+      }
+      BIND(COALESCE(?roleLabel, REPLACE(STR(?role__id), "^.*[/#]([^/#]+)$", "$1")) AS ?role__prefLabel)
+    }
+    UNION
+    {
+      ?id voc:wikidataLink ?wikidataLink__id .
+      OPTIONAL {
+        ?wikidataLink__id rdfs:label ?wikidataLinkLabel .
+      }
+      BIND(COALESCE(?wikidataLinkLabel, REPLACE(STR(?wikidataLink__id), "^.*[/#]([^/#]+)$", "$1")) AS ?wikidataLink__prefLabel)
+      BIND(?wikidataLink__id AS ?wikidataLink__dataProviderUrl)
   }
 `

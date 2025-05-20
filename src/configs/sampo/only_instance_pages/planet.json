@@ -1,0 +1,157 @@
+{
+  "id": "planet",
+  "endpoint": {
+    "url": "http://localhost:7200/repositories/SWrepo",
+    "useAuth": false,
+    "defaultGraph": "https://swapi.co/resource/",
+    "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesPlanets.js",
+  "baseURI": "https://swapi.co/resource",
+  "URITemplate": "<BASE_URI>/planet/<LOCAL_ID>",
+  "facetClass": "voc:Planet",
+  "resultClasses": {
+    "planet": {
+      "instanceConfig": {
+        "propertiesQueryBlock": "planetInstanceProperties",
+        "instancePageResultClasses": {
+          "instancePageTable": {
+            "tabID": 0,
+            "component": "InstancePageTable",
+            "tabPath": "table",
+            "tabIcon": "CalendarViewDay"
+          }
+        }
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "uri",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "label",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    },
+    {
+      "id": "climate",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    },
+    {
+      "id": "desc",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150
+    },
+    {
+      "id": "diameter",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "film",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "gravity",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "orbitalPeriod",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "population",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "resident",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+
+    {
+      "id": "rotationPeriod",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "surfaceWater",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "terrain",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "id": "film",
+  "endpoint": {
+    "url": "http://localhost:7200/repositories/SWrepo",
+    "useAuth": false,
+    "defaultGraph": "https://swapi.co/resource/",
+    "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesFilms.js",
+  "baseURI": "https://swapi.co/resource",
+  "URITemplate": "<BASE_URI>/film/<LOCAL_ID>",
+  "facetClass": "voc:Film",
+  "resultClasses": {
+    "film": {
+      "instanceConfig": {
+        "propertiesQueryBlock": "filmInstanceProperties",
+        "instancePageResultClasses": {
+          "instancePageTable": {
+            "tabID": 0,
+            "component": "InstancePageTable",
+            "tabPath": "table",
+            "tabIcon": "CalendarViewDay"
+          }
+        }
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "uri",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "label",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    },
+    {
+      "id": "boxOffice",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    },
+    {
+      "id": "character",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150
+    },
+    {
+      "id": "cost",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "desc",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "episodeId",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "image",
+      "valueType": "object",
+      "value":"image",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "location",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "openingCrawl",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "planet",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "releaseDate",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "returnOnInvestment",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "starship",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "vehicle",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "wikidataLink",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": true,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    }
+  ]
+}

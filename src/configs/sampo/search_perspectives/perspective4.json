@@ -1,134 +1,168 @@
 {
-    "id": "perspective4",
-    "sparqlQueriesFile": "SparqlQueriesPerspective4.js",
-    "sparqlQueries": "federatedSearchSparqlQueries",
-    "frontPageImage": "main_page/places-452x262.jpg",
-    "searchMode": "federated-search",
-    "enableDynamicLanguageChange": false,
-    "defaultActiveFacets": [
-        "datasetSelector"
-    ],
-    "feredatedResultsConfig": {
-        "sortBy": "broaderAreaLabel",
-        "sortDirection": "asc",
-        "groupBy": "broaderTypeLabel",
-        "groupByLabel": "Paikanlaji"
-    },
+  "id": "perspective4",
+  "endpoint": {
+      "url": "http://localhost:7200/repositories/SWrepo",
+      "useAuth": false,
+      "defaultGraph": "https://swapi.co/resource/",
+      "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesPerspective4.js",
+  "baseURI": "",
+  "URITemplate": "<BASE_URI>/award/<LOCAL_ID>",
+  "facetClass": "voc:AwardRecognition",
+  "frontPageImage": "main_page/Awards.jpg",
+  "searchMode": "faceted-search",
+  "enableDynamicLanguageChange": false,
+  "defaultActiveFacets": [
+    "prefLabel"
+  ],
+  "defaultTab": "table",
+    "defaultInstancePageTab": "table",
     "resultClasses": {
-        "table": {
-            "tabID": 0,
-            "tabPath": "table",
-            "tabIcon": "CalendarViewDay"
-        },
-        "mapClusters": {
-            "tabID": 1,
-            "tabPath": "map_clusters",
-            "tabIcon": "TripOrigin"
-        },
-        "mapMarkers": {
-            "tabID": 2,
-            "tabPath": "map_markers",
-            "tabIcon": "LocationOn"
-        },
-        "statistics": {
-            "tabID": 3,
-            "tabPath": "statistics",
-            "tabIcon": "PieChart"
-        },
-        "download": {
-            "tabID": 4,
-            "tabPath": "download",
-            "tabIcon": "CloudDownload"
-        },
-        "boundingboxSearch": {}
-    },
-    "datasets": {
-        "kotus": {
-            "endpoint": "https://ldf.fi/kotus-names-archive/sparql",
-            "selected": true
-        },
-        "pnr": {
-            "endpoint": "https://ldf.fi/pnr-keyword-index/sparql",
-            "selected": true
-        },
-        "warsa_karelian_places": {
-            "endpoint": "https://ldf.fi/warsa/sparql",
-            "selected": false
-        },
-        "tgn": {
-            "endpoint": "https://vocab.getty.edu/sparql.json",
-            "selected": false
+        "perspective4": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "AwardRecognitionProperties",
+                "pagesize": 10,
+                "sortBy": null,
+                "sortDirection": null
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "AwardRecognitionProperties",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }
         }
     },
-    "maps": {
-        "boundingboxSearch": {
-            "center": [
-                65.184809,
-                27.31405
-            ],
-            "zoom": 5
-        },
-        "mapClusters": {
-            "center": [
-                65.184809,
-                27.31405
-            ],
-            "zoom": 5
-        },
-        "mapMarkers": {
-            "center": [
-                65.184809,
-                27.31405
-            ],
-            "zoom": 5
-        }
-    },
+  "properties": [
+      {
+        "id": "uri",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": true,
+        "sortValues": true,
+        "numberedList": false,
+        "onlyOnInstancePage": true
+      },
+      {
+        "id": "award",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": true,
+        "sortValues": true,
+        "numberedList": false
+      },
+      {
+        "id": "awardDate",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": true,
+        "sortValues": true,
+        "numberedList": false
+      },
+      {
+        "id": "awardStatus",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": true,
+        "sortValues": true,
+        "numberedList": false
+      },
+      {
+        "id": "forWork",
+        "valueType": "object",
+        "sortValues": true,
+        "numberedList": false,
+        "externalLink": false,
+        "makeLink": false
+      },
+      {
+        "id": "person",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": false,
+        "sortValues": true,
+        "numberedList": false
+      },
+      {
+        "id": "wikidataLink",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": true,
+        "sortValues": false,
+        "numberedList": false
+      }
+    ],
     "facets": {
-        "datasetSelector": {
-            "filterType": "datasetSelector",
-            "containerClass": "six"
-        },
-        "prefLabel": {
-            "filterType": "clientFSLiteral",
-            "searchField": true,
-            "containerClass": "ten",
-            "facetType": "list"
-        },
-        "broaderTypeLabel": {
-            "filterType": "clientFSLiteral",
-            "searchField": true,
-            "containerClass": "ten",
-            "facetType": "list"
-        },
-        "broaderAreaLabel": {
-            "filterType": "clientFSLiteral",
-            "searchField": true,
-            "containerClass": "ten",
-            "facetType": "list"
-        },
-        "modifier": {
-            "filterType": "clientFSLiteral",
-            "searchField": true,
-            "containerClass": "ten",
-            "facetType": "list"
-        },
-        "basicElement": {
-            "filterType": "clientFSLiteral",
-            "searchField": true,
-            "containerClass": "ten",
-            "facetType": "list"
-        },
-        "collectionYear": {
-            "filterType": "clientFSLiteral",
-            "searchField": true,
-            "containerClass": "ten",
-            "facetType": "list"
-        },
-        "source": {
-            "filterType": "clientFSLiteral",
-            "searchField": false,
-            "containerClass": "three",
-            "facetType": "list"
-        }
+      "award": {
+        "containerClass": "four",
+        "facetType": "list",
+        "filterType": "uriFilter",
+        "facetLabelPredicate": "rdfs:label",
+        "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+        "predicate": "voc:award",
+        "searchField": true,
+        "sortButton": true,
+        "sortBy": "instanceCount",
+        "sortByPredicate": "?prefLabel_",
+        "sortDirection": "desc",
+        "barChartButton" : true
+      },
+      "awardDate": {
+        "containerClass": "four",
+        "searchField": true,
+        "sortButton": true,
+        "sortBy": "instanceCount",
+        "sortByPredicate": "?prefLabel_",
+        "sortDirection": "desc"
+      },
+      "awardStatus": {
+        "containerClass": "four",
+        "searchField": true,
+        "sortButton": true,
+        "sortBy": "instanceCount",
+        "sortByPredicate": "?prefLabel_",
+        "sortDirection": "desc",
+        "pieChartButton" : true
+      },
+      "forWork": {
+        "containerClass": "three",
+        "facetType": "list",
+        "sortButton": true,
+        "sortBy": "instanceCount",
+        "sortByPredicate": "?prefLabel_",
+        "sortDirection": "desc"
+      },
+      "person": {
+        "containerClass": "four",
+        "facetType": "list",
+        "filterType": "uriFilter",
+        "facetLabelPredicate": "rdfs:label",
+        "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'en')",
+        "predicate": "voc:person",
+        "searchField": true,
+        "sortButton": true,
+        "sortBy": "instanceCount",
+        "sortByPredicate": "?prefLabel_",
+        "sortDirection": "desc",
+        "pieChartButton" : true
+      },
+      "wikidataLink": {
+        "containerClass": "four",
+        "searchField": true,
+        "sortButton": true,
+        "sortBy": "instanceCount",
+        "sortByPredicate": "?prefLabel_",
+        "sortDirection": "desc"
+      }
     }
 }

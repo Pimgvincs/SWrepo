@@ -1,0 +1,63 @@
+{
+  "id": "location",
+  "endpoint": {
+      "url": "http://localhost:7200/repositories/SWrepo",
+      "useAuth": false,
+      "defaultGraph": "https://swapi.co/resource/",
+      "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesPerspective3.js",
+  "baseURI": "",
+  "URITemplate": "<BASE_URI>/location/{id}",
+  "facetClass": "voc:Location",
+  "resultClasses": {
+      "location": {
+          "instanceConfig": {
+              "propertiesQueryBlock": "locationInstanceProperties",
+              "instancePageResultClasses": {
+                  "instancePageTable": {
+                      "tabID": 0,
+                      "component": "InstancePageTable",
+                      "tabPath": "table",
+                      "tabIcon": "CalendarViewDay"
+                  }
+              }
+          }
+      }
+  },
+  "properties": [
+      {
+          "id": "uri",
+          "valueType": "object",
+          "makeLink": true,
+          "externalLink": true,
+          "sortValues": true,
+          "numberedList": false,
+          "onlyOnInstancePage": true
+      },
+      {
+          "id": "label",
+          "valueType": "object",
+          "makeLink": true,
+          "externalLink": false,
+          "sortValues": true,
+          "numberedList": false
+      },
+      {
+          "id": "country",
+          "valueType": "object",
+          "makeLink": true,
+          "externalLink": false,
+          "sortValues": true,
+          "numberedList": false
+      },
+      {
+          "id": "wikidataLink",
+          "valueType": "object",
+          "makeLink": true,
+          "externalLink": true,
+          "sortValues": false,
+          "numberedList": false
+      }
+  ]
+}

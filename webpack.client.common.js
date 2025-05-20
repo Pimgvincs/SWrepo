@@ -73,7 +73,8 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    fallback: { "querystring": false }
   },
   experiments: {
     topLevelAwait: true

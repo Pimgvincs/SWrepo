@@ -1,23 +1,23 @@
 export const fullTextSearchProperties = `
   {
     VALUES ?type__id {
-      frbroo:F4_Manifestation_Singleton 
+      frbroo:F4_Manifestation_Singleton
       frbroo:F1_Work
       frbroo:F2_Expression
       crm:E10_Transfer_of_Custody
       crm:E12_Production
       crm:E7_Activity
-      crm:E67_Birth 
-      crm:E69_Death 
+      crm:E67_Birth
+      crm:E69_Death
       mmm-schema:ManuscriptActivity
-      crm:E21_Person 
-      crm:E74_Group 
+      crm:E21_Person
+      crm:E74_Group
       crm:E39_Actor
       crm:E53_Place
       crm:E78_Collection
     }
     ?id a ?type__id .
-    ?type__id skos:prefLabel|rdfs:label ?type__prefLabel . 
+    ?type__id skos:prefLabel|rdfs:label ?type__prefLabel .
   }
   UNION
   {

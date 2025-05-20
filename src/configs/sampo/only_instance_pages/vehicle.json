@@ -1,0 +1,176 @@
+{
+  "id": "vehicle",
+  "endpoint": {
+    "url": "http://localhost:7200/repositories/SWrepo",
+    "useAuth": false,
+    "defaultGraph": "https://swapi.co/resource/",
+    "prefixesFile": "SparqlQueriesPrefixes.js"
+  },
+  "sparqlQueriesFile": "SparqlQueriesVehicles.js",
+  "baseURI": "https://swapi.co/resource",
+  "URITemplate": "<BASE_URI>/vehicle/<LOCAL_ID>",
+  "facetClass": "voc:Vehicle",
+  "resultClasses": {
+    "vehicle": {
+      "instanceConfig": {
+        "propertiesQueryBlock": "vehicleInstanceProperties",
+        "instancePageResultClasses": {
+          "instancePageTable": {
+            "tabID": 0,
+            "component": "InstancePageTable",
+            "tabPath": "table",
+            "tabIcon": "CalendarViewDay"
+          }
+        }
+      }
+    }
+  },
+  "properties": [
+    {
+      "id": "uri",
+      "valueType": "object",
+      "makeLink": false,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "label",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    },
+    {
+      "id": "cargoCapacity",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 250
+    },
+    {
+      "id": "consumables",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150
+    },
+    {
+      "id": "costInCredits",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "crew",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "desc",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "film",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "length",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "manufacturer",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "maxAtmospheringSpeed",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "model",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "passengers",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "pilot",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    },
+    {
+      "id": "vehicleClass",
+      "valueType": "object",
+      "makeLink": true,
+      "externalLink": false,
+      "sortValues": true,
+      "numberedList": false,
+      "minWidth": 150,
+      "onlyOnInstancePage": true
+    }
+  ]
+}

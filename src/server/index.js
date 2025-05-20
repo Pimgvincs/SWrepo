@@ -42,6 +42,55 @@ createBackendSearchConfig().then(backendSearchConfig => {
     }
     next()
   })
+  // TEST CONNECTION TO BACKEND SUCH AS GRAPHDB
+  app.get('/api/health-check', async (req, res) => {
+    try {
+      // Simple test query that works with any RDF data
+      const testQuery = `
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        SELECT (COUNT(*) as ?count) WHERE {
+          ?s rdf:type ?o
+        } LIMIT 1
+      `;
+
+      const response = await axios.post(
+        'http://localhost:7200/repositories/SWrepo',
+        testQuery,
+        {
+          headers: {
+            'Content-Type': 'application/sparql-query',
+            'Accept': 'application/sparql-results+json'
+          }
+        }
+      );
+
+      res.json({
+        status: 'healthy',
+        graphdb: {
+          endpoint: 'http://localhost:7200/repositories/SWrepo',
+          triples_count: response.data.results.bindings[0]?.count?.value || 0,
+          response_time_ms: response.headers['x-response-time']
+        },
+        sampo_ui: {
+          version: process.env.npm_package_version,
+          status: 'connected'
+        }
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: 'connection_failed',
+        error: error.message,
+        details: {
+          config: error.config,
+          response: error.response?.data
+        }
+      });
+    }
+  });
+  // Test for frontend and backend connectivity
+  app.get('/api/health-check', (req, res) => {
+    res.json({ status: "healthy", graphdb: { /*...*/ } });
+  });
 
   // Generate API docs from YAML file with Swagger UI
   let swaggerDocument

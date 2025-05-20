@@ -11,6 +11,14 @@ module.exports = merge(common, {
     historyApiFallback: true,
     devMiddleware: {
       publicPath: '/'
+    },
+    //proxy for api calls to the backend server
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        secure: false,
+        changeOrigin: true
+      }
     }
   }
 })
